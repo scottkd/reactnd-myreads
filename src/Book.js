@@ -12,10 +12,11 @@ class Book extends Component {
     }
   }
   render() {
+    const imageLink = this.state.bookObject.imageLinks && this.state.bookObject.imageLinks.smallThumbnail
     return (
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.state.bookObject.imageLinks.smallThumbnail})` }}></div>
+          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${imageLink})` }}></div>
 
           <div className="book-shelf-changer">
             <select>
