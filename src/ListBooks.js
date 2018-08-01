@@ -11,7 +11,7 @@ class ListBooks extends Component {
     }
   }
   componentWillReceiveProps(props) {
-    this.state = {books: props.books}
+    this.setState({books: props.books})
   }
   render() {
     const read = this.state.books.filter(book => book.shelf === 'read');
