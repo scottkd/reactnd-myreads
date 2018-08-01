@@ -17,11 +17,21 @@ class BooksApp extends React.Component {
         }))
       })
   }
+  moveBook = (bookObject, shelf) => {
+    this.setState(prevState => ({
+      bookObject: {
+        ...prevState.bookObject,
+        shelf: shelf
+      }
+    }))
+  }
   render() {
     return (
       <div className="app">
         <Route exact path='/search' render={() => (
-          <SearchBooks/>
+          <SearchBooks
+            moveBook={this.moveBook}
+          />
         )} />
         <Route exact path='/' render={() => (
           <ListBooks

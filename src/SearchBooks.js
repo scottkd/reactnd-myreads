@@ -4,9 +4,13 @@ import * as BooksAPI from "./BooksAPI";
 import Book from './Book';
 
 class SearchBooks extends Component {
-  state = {
-    query: '',
-    bookResults: [],
+  constructor(props) {
+    super(props)
+    this.state = {
+      query: '',
+      bookResults: [],
+      moveBook: props.moveBook
+    }
   }
   updateQuery = (query) => {
     this.setState(() => ({
@@ -47,6 +51,7 @@ class SearchBooks extends Component {
               <li key={book.id}>
                 <Book
                   bookObject={book}
+                  moveBook={this.state.moveBook}
                 />
               </li>
             )}
