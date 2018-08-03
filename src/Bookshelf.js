@@ -11,6 +11,7 @@ function Bookshelf(props) {
             <li key={book.id}>
               <Book
                 bookObject={book}
+                moveBook={props.moveBook}
               />
             </li>
           )}

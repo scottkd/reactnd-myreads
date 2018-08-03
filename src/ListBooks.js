@@ -15,14 +15,17 @@ function ListBooks(props) {
         <Bookshelf
           shelfTitle='Currently Reading'
           books={currentlyReading}
+          moveBook={props.moveBook}
         />
         <Bookshelf
           shelfTitle='Want to Read'
           books={wantToRead}
+          moveBook={props.moveBook}
         />
         <Bookshelf
           shelfTitle='Read'
           books={read}
+          moveBook={props.moveBook}
         />
       </div>
       <div className="open-search">

@@ -46,6 +46,7 @@ class SearchBooks extends Component {
               <li key={book.id}>
                 <Book
                   bookObject={book}
+                  moveBook={this.props.moveBook}
                 />
               </li>
             )}
