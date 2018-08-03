@@ -25,7 +25,6 @@ class SearchBooks extends Component {
       })
   }
   render() {
-    console.log(this.state)
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -51,7 +50,6 @@ class SearchBooks extends Component {
               </li>
             )}
           </ol>
-
         </div>
       </div>
     )
