@@ -12,17 +12,17 @@ class SearchBooks extends Component {
     this.setState(() => ({
       query: query
     }))
-    BooksAPI.search(query)
-      .then((bookResults) => {
-        if (bookResults === undefined || bookResults === null || bookResults.error) {
-          this.setState({bookResults: []})
-        }
-        else {
-          this.setState(() => ({
-            bookResults
-          }))
-        }
-      })
+
+    BooksAPI.search(query, 30).then((books) => {
+      if(!!books && books.length > 0) {
+        const bookResults = books.map((book) => {
+          const existingBook = this.props.books.find((b) => b.id === book.id)
+          book.shelf = !!existingBook ? existingBook.shelf : `none`
+          return book
+        });
+        this.setState({ bookResults })
+      }
+    })
   }
   render() {
     return (
