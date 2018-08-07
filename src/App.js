@@ -1,9 +1,10 @@
 import React from 'react'
-import './App.css'
 import { Route } from 'react-router-dom'
-import SearchBooks from './SearchBooks'
+
+import * as BooksAPI from './BooksAPI'
 import ListBooks from './ListBooks'
-import * as BooksAPI from "./BooksAPI";
+import SearchBooks from './SearchBooks'
+import './App.css'
 
 class BooksApp extends React.Component {
   state = {
@@ -19,26 +20,12 @@ class BooksApp extends React.Component {
   }
   moveBook = (bookToMove, event) => {
     const shelf = event.target.value
-    const movedBook = Object.assign(bookToMove, {shelf: shelf})
-    const index = this.state.books.findIndex(book=> book.id === bookToMove.id)
-    if (index === -1) {
-      this.setState({
-        books: [
-          ...this.state.books,
-          movedBook
-        ]
-      })
-    }
-    else {
-      this.setState({
-        books: [
-          ...this.state.books.slice(0, index),
-          movedBook,
-          ...this.state.books.slice(index + 1)
-        ]
-      })
-    }
-    BooksAPI.update(movedBook, shelf)
+    BooksAPI.update(bookToMove, shelf).then(() => {
+      bookToMove.shelf = shelf
+      this.setState(state => ({
+        books: state.books.filter(b => b.id !== bookToMove.id).concat(bookToMove)
+      }))
+    })
   }
   render() {
     return (
