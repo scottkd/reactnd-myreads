@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+
 import BookshelfChanger from './BookshelfChanger'
 
 function Book(props) {
@@ -18,4 +19,4 @@ function Book(props) {
   )
 }
 
-export default Book;
+export default Book

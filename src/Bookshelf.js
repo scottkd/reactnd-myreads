@@ -1,5 +1,6 @@
-import React from 'react';
-import Book from './Book';
+import React from 'react'
+
+import Book from './Book'
 
 function Bookshelf(props) {
   return (
@@ -21,4 +22,4 @@ function Bookshelf(props) {
   )
 }
 
-export default Bookshelf;
+export default Bookshelf

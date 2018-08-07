@@ -49,4 +49,4 @@ class ListBooks extends Component {
     )}
 }
 
-export default ListBooks;
+export default ListBooks
